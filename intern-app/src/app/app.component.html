@@ -4,17 +4,96 @@
     <div class="row h-100 justify-content-center align-items-center">
       <form class="col-12" [formGroup]="registerForm" (ngSubmit)="formSubmit()">
         <div class="form-group">
-          <label>First Name</label>
-                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }" />
-                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
-                        <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+          <label>Party Name</label>
+                    <input type="text" formControlName="partyName" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['partyName'].errors }" />
+                    <div *ngIf="submitted && formControls['partyName'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['partyName'].errors['required']">Party name is required</div>
                     </div>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
-                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }" />
-                    <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
-                        <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+          <label>Mobile Number</label>
+                    <input type="text" formControlName="mobileNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['mobileNo'].errors }" />
+                    <div *ngIf="submitted && formControls['mobileNo'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['mobileNo'].errors['required']">Mobile Number is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+                    <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['date'].errors }" />
+                    <div *ngIf="submitted && formControls['date'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['date'].errors['required']">Date is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Product Name</label>
+                    <input type="text" formControlName="productName" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['productName'].errors }" />
+                    <div *ngIf="submitted && formControls['productName'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['productName'].errors['required']">Product name is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label for="particular">Particulars : </label>
+          <div *ngFor="let item of particularList">
+            <label>
+              <input type="checkbox" [value]="item.name" (change)="onCheckboxChange($event)" />
+              {{item.name}}
+            </label>
+          </div>
+      </div>
+        <div class="form-group">
+          <label>Price</label>
+                    <input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['price'].errors }" />
+                    <div *ngIf="submitted && formControls['price'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['price'].errors['required']">Price is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Quantity</label>
+                    <input type="number" formControlName="quantity" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['quantity'].errors }" />
+                    <div *ngIf="submitted && formControls['quantity'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['quantity'].errors['required']">Mobile Number is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>CGST</label>
+                    <input type="number" formControlName="cgst" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['cgst'].errors }" />
+                    <div *ngIf="submitted && formControls['cgst'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['cgst'].errors['required']">CGST is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>SGST</label>
+                    <input type="number" formControlName="sgst" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['sgst'].errors }" />
+                    <div *ngIf="submitted && formControls['sgst'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['sgst'].errors['required']">SGST is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Amount</label>
+                    <input type="number" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['amount'].errors }" />
+                    <div *ngIf="submitted && formControls['amount'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['amount'].errors['required']">Amount is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Total Amount</label>
+                    <input type="number" formControlName="totalAmount" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['totalAmount'].errors }" />
+                    <div *ngIf="submitted && formControls['totalAmount'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['totalAmount'].errors['required']">Total Amount is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Total Payable Amount</label>
+                    <input type="number" formControlName="totalPayableAmount" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['totalPayableAmount'].errors }" />
+                    <div *ngIf="submitted && formControls['totalPayableAmount'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['totalPayableAmount'].errors['required']">Total Payable Amount is required</div>
+                    </div>
+        </div>
+        <div class="form-group">
+          <label>Amount in Words</label>
+                    <input type="text" formControlName="amountInWords" class="form-control" [ngClass]="{ 'is-invalid': submitted && formControls['amountInWords'].errors }" />
+                    <div *ngIf="submitted && formControls['amountInWords'].errors" class="invalid-feedback">
+                        <div *ngIf="formControls['amountInWords'].errors['required']">Amount in Words required</div>
                     </div>
         </div>
         <div class="text-center">

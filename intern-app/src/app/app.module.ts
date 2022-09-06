@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreDataService } from './services/store-data.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { AppComponent } from './app.component';
         ReactiveFormsModule,
         AppRoutingModule,
   ],
-  providers: [],
+  providers: [StoreDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
