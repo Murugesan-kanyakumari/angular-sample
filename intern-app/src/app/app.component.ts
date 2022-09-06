@@ -47,24 +47,19 @@ export class AppComponent {
     onCheckboxChange(e:any) {
         
         const particular: FormArray = this.registerForm.get('particular') as FormArray;
-       
         if (e.target.checked) {
           particular.push(new FormControl({name:e.target.value}));
         } else {
            const index = particular.controls.findIndex(x => x.value === e.target.value);
            particular.removeAt(index);
         }
-       
-        
       }
 
     formSubmit() {
         this.submitted = true;
-
         if (this.registerForm.invalid) {
             return;
         }
-
        const saveData =  this.myService.storeFormData(this.registerForm.value);
     }
 
